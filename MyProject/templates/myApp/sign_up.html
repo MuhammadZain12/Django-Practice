@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends "myApp/base.html" %}
+{% block body_block %}
+    {% if registered %}
+      <h1>Thank You For Signing Up</h1>
+    {% else %}
+      <h1 class="sign"><u>Sign Up</u></h1>  
+      <form method="post" class="my_form" enctype="multipart/form-data">
+        {{basic_info.as_p}}
+        {{extra_info.as_p}}
+        {% csrf_token %}
+        <input type="submit" value="Submit">
+      </form>
+    {% endif %}
+{% endblock %}  
+  
